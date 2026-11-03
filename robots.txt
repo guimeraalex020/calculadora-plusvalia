@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://guimeraalex020.github.io/calculadora-plusvalia/sitemap.xml

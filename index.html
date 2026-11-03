@@ -1,0 +1,91 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora plusvalía municipal 2026 · Nuevos coeficientes 1 de diciembre</title>
+<meta name="description" content="Calcula la plusvalía municipal 2026 por método objetivo y real, con los coeficientes vigentes y los nuevos del 1 de diciembre de 2026 (RDL 29/2026). Gratis.">
+<link rel="canonical" href="https://guimeraalex020.github.io/calculadora-plusvalia/">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--ink:#0f172a;--mut:#64748b;--pri:#0d6e5b;--pri2:#e6f4f0;--acc:#f59e0b;--bd:#e2e8f0;--r:16px}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+.wrap{max-width:960px;margin:auto;padding:0 18px}header.hero{background:linear-gradient(135deg,#0d6e5b,#0b3d5c);color:#fff;padding:48px 0 70px}
+.badge{display:inline-block;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:99px;font-size:.85rem;font-weight:600}
+h1{font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.15;margin:14px 0 10px;font-weight:800}.hero p{opacity:.9;max-width:640px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:24px;box-shadow:0 10px 30px rgba(15,23,42,.06);margin-bottom:22px}
+.calc{margin-top:-48px}.grid{display:grid;gap:14px;grid-template-columns:1fr}@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
+label{font-weight:600;font-size:.92rem;display:block;margin-bottom:5px}small{color:var(--mut);font-weight:400}
+input,select{width:100%;padding:12px;border:1px solid var(--bd);border-radius:10px;font:inherit;background:#fff}input:focus,select:focus{outline:2px solid var(--pri);border-color:transparent}
+button{background:var(--pri);color:#fff;border:0;border-radius:12px;padding:14px 22px;font:inherit;font-weight:700;cursor:pointer;width:100%;margin-top:16px}
+.res{display:none}.res.show{display:block}.kpis{display:grid;gap:12px;grid-template-columns:1fr}@media(min-width:700px){.kpis{grid-template-columns:repeat(3,1fr)}}
+.kpi{background:var(--pri2);border-radius:12px;padding:16px}.kpi b{display:block;font-size:1.5rem}.kpi.win{background:var(--pri);color:#fff}
+.note{background:#fff7e6;border-left:4px solid var(--acc);padding:12px 14px;border-radius:8px;font-size:.92rem}
+table{width:100%;border-collapse:collapse;font-size:.93rem}th,td{padding:8px;border-bottom:1px solid var(--bd);text-align:left}th{background:var(--pri2)}
+.up{color:#b91c1c;font-weight:600}.down{color:#15803d;font-weight:600}h2{font-size:1.4rem;margin-top:0}
+details{border-bottom:1px solid var(--bd);padding:12px 0}summary{font-weight:600;cursor:pointer}
+.ad-slot:empty{display:none}.ad-slot{margin:20px 0;min-height:90px}footer{color:var(--mut);font-size:.85rem;padding:30px 0}footer a{color:var(--pri)}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"¿Cambian los coeficientes de la plusvalía el 1 de diciembre de 2026?","acceptedAnswer":{"@type":"Answer","text":"Sí. El Real Decreto-ley 29/2026 fija nuevos coeficientes máximos para transmisiones desde el 1 de diciembre de 2026: suben de menos de 1 a 16 años y bajan de 17 años en adelante (20 o más pasa de 0,40 a 0,30). Necesita convalidación; si decae, sigue la tabla anterior."}},
+{"@type":"Question","name":"¿Qué método de cálculo de la plusvalía me conviene?","acceptedAnswer":{"@type":"Answer","text":"Puedes elegir el que dé menor cuota: el objetivo (valor catastral del suelo × coeficiente) o el real (ganancia real × proporción del suelo). Si vendes con pérdidas no pagas."}},
+{"@type":"Question","name":"¿Pago plusvalía si vendo con pérdidas?","acceptedAnswer":{"@type":"Answer","text":"No. Si el precio de transmisión es igual o inferior al de adquisición no hay incremento de valor y no se devenga el impuesto, siempre que lo acredites."}},
+{"@type":"Question","name":"¿Cuál es el tipo máximo de la plusvalía?","acceptedAnswer":{"@type":"Answer","text":"El tipo de gravamen lo fija cada ayuntamiento con un máximo del 30 %."}}]}</script>
+</head><body>
+<header class="hero"><div class="wrap"><span class="badge">Actualizado nov 2026 · RDL 29/2026</span>
+<h1>Calculadora de plusvalía municipal 2026</h1><p>Calcula cuánto pagas al vender, heredar o donar un inmueble por los dos métodos y compara la tabla actual con los <b>nuevos coeficientes del 1 de diciembre de 2026</b>.</p></div></header>
+<main class="wrap">
+<section class="card calc"><form id="f"><div class="grid">
+<div><label>Fecha de adquisición</label><input type="date" id="fa" required value="2016-06-15"></div>
+<div><label>Fecha de transmisión <small>(venta/herencia)</small></label><input type="date" id="ft" required value="2026-12-15"></div>
+<div><label>Valor catastral del suelo (€) <small>recibo IBI</small></label><input type="number" id="vs" min="0" step="0.01" required value="40000"></div>
+<div><label>Valor catastral total (€)</label><input type="number" id="vt" min="0" step="0.01" required value="90000"></div>
+<div><label>Precio de adquisición (€)</label><input type="number" id="pa" min="0" step="0.01" required value="150000"></div>
+<div><label>Precio de transmisión (€)</label><input type="number" id="pt" min="0" step="0.01" required value="210000"></div>
+<div><label>Tipo de gravamen del ayuntamiento (%) <small>máx. 30</small></label><input type="number" id="tg" min="0" max="30" step="0.1" value="30"></div>
+<div><label>Coeficiente de tu ordenanza <small>(opcional)</small></label><input type="number" id="co" min="0" step="0.01" placeholder="Vacío = máximo legal"></div>
+<div><label>Bonificación (%) <small>p.ej. herencia vivienda habitual</small></label><input type="number" id="bo" min="0" max="95" value="0"></div>
+<div><label>Tabla a aplicar</label><select id="tb"><option value="auto">Automática según fecha</option><option value="old">Vigente (RDL 8/2023)</option><option value="new">Nueva 1-dic-2026 (RDL 29/2026)</option></select></div>
+</div><button>Calcular plusvalía</button></form>
+<div id="r" class="res" aria-live="polite"><hr style="border:0;border-top:1px solid var(--bd);margin:22px 0">
+<div class="kpis"><div class="kpi" id="k1"></div><div class="kpi" id="k2"></div><div class="kpi win" id="k3"></div></div>
+<p id="det" style="font-size:.93rem;color:var(--mut)"></p><div class="note" id="cmp"></div></div></section>
+<div class="ad-slot" data-slot="top"></div>
+<section class="card"><h2>Tabla de coeficientes: antes y después del 1 de diciembre</h2><div style="overflow-x:auto"><table id="tab"><thead><tr><th>Años</th><th>Hasta 30-nov-2026</th><th>Desde 1-dic-2026</th><th>Cambio</th></tr></thead><tbody></tbody></table></div>
+<p class="note">La tabla nueva es del RDL 29/2026 (art. 10) y requiere convalidación. Si decae, se mantiene la tabla del RDL 8/2023. Son máximos: tu ayuntamiento puede fijar coeficientes inferiores.</p></section>
+<section class="card"><h2>Cómo se calcula la plusvalía municipal</h2>
+<p><b>Método objetivo:</b> valor catastral del suelo × coeficiente según años de tenencia × tipo de gravamen. Para menos de un año se prorratea por meses.</p>
+<p><b>Método real:</b> (precio de transmisión − precio de adquisición) × (valor catastral suelo / valor catastral total) × tipo de gravamen.</p>
+<p>La ley te permite tributar por el <b>menor</b> de los dos. Si no hay ganancia, no pagas (art. 104.5 TRLRHL).</p>
+<h3>¿Me conviene vender antes o después del 1 de diciembre?</h3><p>Si llevas <b>17 años o más</b>, la tabla nueva baja el máximo (20+ años: de 0,40 a 0,30). Si llevas <b>de 1 a 16 años</b>, el máximo sube, aunque solo te afecta si tu ordenanza remite al máximo legal. Usa el selector de tabla para comparar.</p></section>
+<div class="ad-slot" data-slot="mid"></div>
+<section class="card"><h2>¿Necesitas ayuda profesional?</h2><p>Para herencias, divorcios o reclamaciones de plusvalía cobrada indebidamente, una gestoría puede presentar la autoliquidación o el recurso.</p><div class="ad-slot" data-slot="affiliate"></div></section>
+<section class="card"><h2>Preguntas frecuentes</h2>
+<details><summary>¿Cambian los coeficientes el 1 de diciembre de 2026?</summary><p>Sí, según el RDL 29/2026: suben de menos de 1 a 16 años y bajan de 17 en adelante. Está pendiente de convalidación.</p></details>
+<details><summary>¿Qué método me conviene?</summary><p>El que dé menor cuota. La calculadora te lo marca automáticamente.</p></details>
+<details><summary>¿Pago si vendo con pérdidas?</summary><p>No, siempre que acredites con escrituras que el precio de venta no supera al de compra.</p></details>
+<details><summary>¿Quién paga la plusvalía?</summary><p>En compraventa, el vendedor; en herencia o donación, quien recibe el inmueble (en donación, el que lo recibe).</p></details>
+<details><summary>¿Plazo para pagarla?</summary><p>30 días hábiles en ventas y donaciones; 6 meses (prorrogables a 1 año) en herencias.</p></details>
+<details><summary>¿Cuál es el tipo máximo?</summary><p>El 30 %. Cada ayuntamiento fija el suyo en la ordenanza fiscal.</p></details></section>
+<p class="note"><b>Aviso:</b> estimación orientativa, no constituye asesoramiento fiscal. Comprueba coeficientes, tipo y bonificaciones en la ordenanza de tu ayuntamiento. Territorios forales (País Vasco, Navarra) tienen normativa propia.</p>
+</main>
+<footer class="wrap">© 2026 · <a href="privacy.html">Privacidad</a> · Fuentes: TRLRHL art. 107, RDL 8/2023, RDL 29/2026.</footer>
+<script>
+const OLD=[.15,.15,.14,.14,.16,.18,.19,.20,.19,.15,.12,.10,.09,.09,.09,.09,.10,.13,.17,.23,.40];
+const NEW=[.17,.16,.16,.17,.17,.19,.21,.23,.24,.25,.22,.18,.14,.12,.11,.11,.11,.11,.13,.20,.30];
+const eur=n=>n.toLocaleString('es-ES',{style:'currency',currency:'EUR'});
+const tb=document.querySelector('#tab tbody');OLD.forEach((o,i)=>{const n=NEW[i],c=n>o?'<span class=up>Sube</span>':n<o?'<span class=down>Baja</span>':'=';tb.insertAdjacentHTML('beforeend',`<tr><td>${i==0?'Menos de 1':i==20?'20 o más':i}</td><td>${o.toFixed(2)}</td><td>${n.toFixed(2)}</td><td>${c}</td></tr>`)});
+function per(a,b){let y=b.getFullYear()-a.getFullYear(),m=b.getMonth()-a.getMonth();if(b.getDate()<a.getDate())m--;let tm=y*12+m;return{y:Math.floor(tm/12),m:tm%12,tm}}
+function calc(T,p,v){const own=parseFloat(document.getElementById('co').value);
+ let coef=p.y>=20?T[20]:p.y==0?T[0]*p.m/12:T[p.y];let max=coef;if(!isNaN(own))coef=Math.min(own*(p.y==0?p.m/12:1),max);
+ const base=v.vs*coef;let obj=base*v.tg/100*(1-v.bo/100);
+ const gan=v.pt-v.pa;let real=gan<=0?0:gan*(v.vt?v.vs/v.vt:0)*v.tg/100*(1-v.bo/100);if(p.y==0&&gan>0){} 
+ return{coef,obj,real,gan}}
+document.getElementById('f').onsubmit=e=>{e.preventDefault();const g=id=>parseFloat(document.getElementById(id).value)||0;
+ const a=new Date(document.getElementById('fa').value),b=new Date(document.getElementById('ft').value);if(b<=a)return alert('La transmisión debe ser posterior a la adquisición');
+ const v={vs:g('vs'),vt:g('vt'),pa:g('pa'),pt:g('pt'),tg:Math.min(g('tg'),30),bo:g('bo')};const p=per(a,b);
+ const sel=document.getElementById('tb').value;const useNew=sel=='new'||(sel=='auto'&&b>=new Date('2026-12-01'));
+ const R=calc(useNew?NEW:OLD,p,v),A=calc(useNew?OLD:NEW,p,v);
+ const pay=R.gan<=0?0:Math.min(R.obj,R.real),payA=A.gan<=0?0:Math.min(A.obj,A.real);
+ k1.innerHTML=`Método objetivo<b>${eur(R.gan<=0?0:R.obj)}</b>`;k2.innerHTML=`Método real<b>${eur(R.real)}</b>`;
+ k3.innerHTML=`Pagarías (el menor)<b>${eur(pay)}</b>`;
+ det.textContent=`Tenencia: ${p.y} años y ${p.m} meses · Coeficiente aplicado ${R.coef.toFixed(4)} (${useNew?'tabla 1-dic-2026':'tabla vigente'}) · Ganancia real ${eur(R.gan)}.`+(R.gan<=0?' Sin ganancia: no hay impuesto.':'');
+ const d=payA-pay;cmp.innerHTML=`Con la ${useNew?'tabla vigente hasta 30-nov':'nueva tabla del 1-dic-2026'} pagarías <b>${eur(payA)}</b> (${d>0?'+':''}${eur(d)}).`;
+ r.classList.add('show');r.scrollIntoView({behavior:'smooth'})};
+</script></body></html>
